@@ -3,7 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { PALETA_PARTICULAS } from "../data/contenido";
 
-const SIMBOLO_URL = "/symbol_sc_2.svg";
+const SIMBOLO_URL = import.meta.env.BASE_URL + "symbol_sc_2.svg";
 const WORLD = 10.264; // emblema cuadrado en unidades 3D (+15% sobre 8.925)
 const MAX_PUNTOS = 5000;
 // Ciclo enjambre: cada 30s las partículas se dispersan por la sección (5s)

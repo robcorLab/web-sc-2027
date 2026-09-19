@@ -51,9 +51,9 @@ export default function App() {
     <>
       <header>
         <a className="logo" href="#top">
-          <img className="logo-img logo-desktop" src="/logo_sc_3.svg" alt="Sector Creativo" />
-          <img className="logo-img logo-tablet" src="/logo_sc_3.svg" alt="Sector Creativo" />
-          <img className="logo-img logo-phone" src="/symbol_sc_2.svg" alt="SC" />
+          <img className="logo-img logo-desktop" src={import.meta.env.BASE_URL + "logo_sc_3.svg"} alt="Sector Creativo" />
+          <img className="logo-img logo-tablet" src={import.meta.env.BASE_URL + "logo_sc_3.svg"} alt="Sector Creativo" />
+          <img className="logo-img logo-phone" src={import.meta.env.BASE_URL + "symbol_sc_2.svg"} alt="SC" />
         </a>
         <nav className={menu ? "open" : ""}>
           <a href="#top" onClick={() => setMenu(false)}>WE ARE</a>
