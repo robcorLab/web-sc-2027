@@ -13,8 +13,8 @@ header.scrolled .logo-phone{height:33px}
 .logo-tablet,.logo-phone{display:none}
 /* Tablets: versión renglón centrado */
 @media(max-width:1024px){.logo-desktop{display:none}.logo-tablet{display:block}}
-/* iPhones / móviles: solo el símbolo rojo S */
-@media(max-width:767px){.logo-tablet{display:none}.logo-phone{display:block;height:40px}}
+/* iPhones / móviles: sin logo en header, el símbolo vive solo en la burbuja */
+@media(max-width:767px){.logo-tablet,.logo-phone{display:none}}
 .logo-mark{width:38px;height:38px;border-radius:10px;background:conic-gradient(from 20deg,#ff4444,#ffcc00,#44ffcc,#ff44aa,#ff4444);display:grid;place-items:center;color:#000;font-weight:900;box-shadow:0 0 24px rgba(255,68,68,.45)}
 nav{display:flex;gap:18px;font-weight:700;font-size:.85rem;letter-spacing:.12em}
 nav a{position:relative;padding:8px 14px;border-radius:999px;color:#e6e6e6;opacity:.88;transition:color .25s,transform .25s,text-shadow .25s,background .35s,border .35s,box-shadow .35s}
@@ -23,13 +23,14 @@ nav a.pill{background:rgba(255,255,255,.09);-webkit-backdrop-filter:blur(10px);b
 /* Orbe "burbuja de agua" + menú móvil (oculto en desktop) */
 .orb,.menu-scrim,.menu-panel{display:none}
 @media(max-width:760px){
+  header{display:none}
   nav{display:none}
-  .orb{display:grid;place-items:center;position:fixed;bottom:26px;right:26px;width:58px;height:58px;border-radius:50%;cursor:pointer;z-index:70;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.3),rgba(40,110,150,.32) 38%,rgba(12,22,34,.8) 72%,rgba(0,0,0,.9));border:1px solid rgba(255,255,255,.35);box-shadow:inset 0 1px 8px rgba(255,255,255,.5),inset 0 -8px 16px rgba(0,0,0,.6),0 12px 34px rgba(0,0,0,.55),0 0 0 1px rgba(120,220,255,.14);transition:box-shadow .3s,transform .3s}
+  .orb{display:grid;place-items:center;position:fixed;bottom:26px;right:26px;width:60px;height:60px;border-radius:50%;cursor:pointer;z-index:70;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.22),rgba(22,22,28,.38) 40%,rgba(8,8,12,.82) 74%,rgba(0,0,0,.92));border:1px solid rgba(255,255,255,.3);box-shadow:inset 0 1px 8px rgba(255,255,255,.45),inset 0 -8px 16px rgba(0,0,0,.6),0 12px 34px rgba(0,0,0,.55),0 0 22px rgba(255,255,255,.06);transition:box-shadow .3s,transform .3s}
   .orb:active{transform:scale(.94)}
   .orb-ring{position:absolute;inset:-7px;border-radius:50%;border:1px solid rgba(120,220,255,.45);animation:orbPulse 3s ease-in-out infinite;pointer-events:none}
   .orb-ring.r2{inset:-14px;border-color:rgba(255,68,68,.3);animation-delay:1.3s}
   @keyframes orbPulse{0%,100%{transform:scale(.955);opacity:.5}50%{transform:scale(1.07);opacity:1}}
-  .orb-logo{width:30px;height:30px;position:relative;z-index:1;filter:drop-shadow(0 0 7px rgba(255,80,80,.9));transition:opacity .3s,transform .3s}
+  .orb-logo{width:40px;height:40px;position:relative;z-index:1;filter:drop-shadow(0 0 9px rgba(255,80,80,.55));transition:opacity .3s,transform .3s}
   .orb-x{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transform:rotate(-90deg) scale(.4);transition:.3s cubic-bezier(.32,.72,0,1);z-index:2}
   .orb-x i{position:absolute;width:24px;height:2px;border-radius:2px;background:#fff;box-shadow:0 0 10px rgba(255,80,80,.9)}
   .orb-x i:first-child{transform:rotate(45deg)}

@@ -91,19 +91,20 @@ export default function App() {
             <a key={l.id} className={activa === l.id ? "pill" : ""} href={l.h} onClick={() => setMenu(false)}>{l.t}</a>
           ))}
         </nav>
-        <div
-          className={"orb" + (menu ? " on" : "")}
-          onClick={() => setMenu(!menu)}
-          role="button"
-          aria-label="Menú"
-          aria-expanded={menu}
-        >
-          <span className="orb-ring" aria-hidden="true" />
-          <span className="orb-ring r2" aria-hidden="true" />
-          <img className="orb-logo" src={import.meta.env.BASE_URL + "symbol_sc_2.svg"} alt="SC" />
-          <span className="orb-x" aria-hidden="true"><i /><i /></span>
-        </div>
       </header>
+
+      <div
+        className={"orb" + (menu ? " on" : "")}
+        onClick={() => setMenu(!menu)}
+        role="button"
+        aria-label="Menú"
+        aria-expanded={menu}
+      >
+        <span className="orb-ring" aria-hidden="true" />
+        <span className="orb-ring r2" aria-hidden="true" />
+        <img className="orb-logo" src={import.meta.env.BASE_URL + "symbol_sc_2.svg"} alt="SC" />
+        <span className="orb-x" aria-hidden="true"><i /><i /></span>
+      </div>
 
       <div className={"menu-scrim" + (menu ? " on" : "")} onClick={() => setMenu(false)} aria-hidden="true" />
       <aside className={"menu-panel" + (menu ? " open" : "")} aria-hidden={!menu}>
