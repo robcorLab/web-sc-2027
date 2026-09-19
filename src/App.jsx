@@ -20,17 +20,48 @@ function useReveal() {
   }, []);
 }
 
+function useActiva(ids) {
+  const [activa, setActiva] = useState(ids[0]);
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      (es) => {
+        const vis = es
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (vis.length) setActiva(vis[0].target.id);
+      },
+      { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, []);
+  return activa;
+}
+
+const LNK = [
+  { t: "WE ARE", h: "#top", id: "top" },
+  { t: "SERVICIOS", h: "#servicios", id: "servicios" },
+  { t: "PROYECTOS", h: "#proyectos", id: "proyectos" },
+  { t: "CONTACTO", h: "#contacto", id: "contacto" },
+];
+
 export default function App() {
   const [menu, setMenu] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [light, setLight] = useState(null);
   const [form, setForm] = useState({ nombre: "", email: "", telefono: "", mensaje: "" });
   const scrollY = useRef(0);
   const heroText = useRef(null);
+  const activa = useActiva(["top", "servicios", "proyectos", "contacto"]);
   useReveal();
 
   useEffect(() => {
     const onScroll = () => {
       scrollY.current = window.scrollY;
+      setScrolled(window.scrollY > 40);
       if (heroText.current) {
         const y = window.scrollY;
         heroText.current.style.transform = `translateY(${y * 0.18}px) scale(${1 + y * 0.00035})`;
@@ -49,20 +80,43 @@ export default function App() {
 
   return (
     <>
-      <header>
+      <header className={scrolled ? "scrolled" : ""}>
         <a className="logo" href="#top">
           <img className="logo-img logo-desktop" src={import.meta.env.BASE_URL + "logo_sc_3.svg"} alt="Sector Creativo" />
           <img className="logo-img logo-tablet" src={import.meta.env.BASE_URL + "logo_sc_3.svg"} alt="Sector Creativo" />
           <img className="logo-img logo-phone" src={import.meta.env.BASE_URL + "symbol_sc_2.svg"} alt="SC" />
         </a>
-        <nav className={menu ? "open" : ""}>
-          <a href="#top" onClick={() => setMenu(false)}>WE ARE</a>
-          <a href="#servicios" onClick={() => setMenu(false)}>SERVICIOS</a>
-          <a href="#proyectos" onClick={() => setMenu(false)}>PROYECTOS</a>
-          <a href="#contacto" onClick={() => setMenu(false)}>CONTACTO</a>
+        <nav aria-label="Principal">
+          {LNK.map((l) => (
+            <a key={l.id} className={activa === l.id ? "pill" : ""} href={l.h} onClick={() => setMenu(false)}>{l.t}</a>
+          ))}
         </nav>
-        <div className="hamb" onClick={() => setMenu(!menu)}><div /><div /><div /></div>
+        <div
+          className={"orb" + (menu ? " on" : "")}
+          onClick={() => setMenu(!menu)}
+          role="button"
+          aria-label="Menú"
+          aria-expanded={menu}
+        >
+          <span className="orb-ring" aria-hidden="true" />
+          <span className="orb-ring r2" aria-hidden="true" />
+          <img className="orb-logo" src={import.meta.env.BASE_URL + "symbol_sc_2.svg"} alt="SC" />
+          <span className="orb-x" aria-hidden="true"><i /><i /></span>
+        </div>
       </header>
+
+      <div className={"menu-scrim" + (menu ? " on" : "")} onClick={() => setMenu(false)} aria-hidden="true" />
+      <aside className={"menu-panel" + (menu ? " open" : "")} aria-hidden={!menu}>
+        {LNK.map((l, i) => (
+          <a
+            key={l.id}
+            className={activa === l.id ? "pill" : ""}
+            style={{ animationDelay: `${i * 70}ms` }}
+            href={l.h}
+            onClick={() => setMenu(false)}
+          >{l.t}</a>
+        ))}
+      </aside>
 
       <div className="fondo-canvas">
         <Canvas camera={{ position: [0, 0.4, 9], fov: 68 }} dpr={[1, 1.5]} gl={{ antialias: true, alpha: true }}>
