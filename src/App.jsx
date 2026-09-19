@@ -144,7 +144,7 @@ export default function App() {
         </div>
       </section>
 
-      <footer>{CONTENIDO.footer}</footer>
+      <footer>{CONTENIDO.footer}<a href={CONTENIDO.designByGithub} target="_blank" rel="noreferrer">{CONTENIDO.designBy}</a></footer>
 
       {light && (
         <div className="lightbox" onClick={() => setLight(null)}>
