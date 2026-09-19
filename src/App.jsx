@@ -65,6 +65,7 @@ export default function App() {
       if (heroText.current) {
         const y = window.scrollY;
         heroText.current.style.transform = `translateY(${y * 0.18}px) scale(${1 + y * 0.00035})`;
+        heroText.current.style.filter = `blur(${Math.min(8, y * 0.006)}px)`; // profundidad de campo
       }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -125,7 +126,7 @@ export default function App() {
             <SimboloOrbital scrollY={scrollY} />
             <PolvoProfundidad scrollY={scrollY} />
           </Suspense>
-          <PostFX />
+          <PostFX scrollY={scrollY} />
         </Canvas>
       </div>
 
