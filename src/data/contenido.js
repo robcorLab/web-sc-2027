@@ -35,7 +35,7 @@ export const CONTENIDO = {
     { titulo: "Diseño → Producción", desc: "Acompañamiento integral: conceptualización, prueba, producción e instalación." },
   ],
   proyectosTotal: 22,
-  footer: "© 2025 Sector Creativo, S.A. de C.V. | Design by RobCorLab",
+  footer: "© 2027 Sector Creativo, S.A. de C.V. | Design by robcorLab",
 };
 
 export const PALETA_PARTICULAS = ["#ff4444", "#ffcc00", "#44ffcc", "#ff44aa", "#ffffff"];
