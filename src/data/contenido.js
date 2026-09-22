@@ -3,7 +3,7 @@ export const CONTENIDO = {
     nombre: "Sector Creativo",
     razon: "Sector Creativo, S.A. de C.V.",
     tagline: "We are all",
-    tagline2: "Creative",
+    tagline2: "CREATIVE",
     descripcion: "Servicios de Comunicación Visual, desde la conceptualización hasta producción final.",
     heroKicker: "Servicios de Comunicación Visual",
     heroSubIni: "30 años",
