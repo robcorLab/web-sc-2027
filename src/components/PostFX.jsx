@@ -52,11 +52,11 @@ export function PostFX({ scrollY }) {
     last.current = s;
     ema.current += (inst - ema.current) * 0.1;
     const v = ema.current;
-    fisheye.uniforms.get("distortion").value = 0.4 + Math.min(0.85, v * 0.09);
-    fisheye.uniforms.get("aberration").value = 0.0012 + Math.min(0.006, v * 0.0009);
+    fisheye.uniforms.get("distortion").value = 0.75 + Math.min(1.1, v * 0.13);
+    fisheye.uniforms.get("aberration").value = 0.0028 + Math.min(0.009, v * 0.0011);
     // patada de FOV con la velocidad: el lente "respira" al scrollear
     const cam = state.camera;
-    const fov = 68 + Math.min(14, v * 1.6);
+    const fov = 74 + Math.min(22, v * 2.0);
     if (Math.abs(cam.fov - fov) > 0.01) {
       cam.fov = fov;
       cam.updateProjectionMatrix();

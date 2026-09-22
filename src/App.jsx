@@ -30,9 +30,16 @@ export default function App() {
 
   useEffect(() => {
     const onScroll = () => {
-      scrollY.current = window.scrollY;
+      const y = window.scrollY;
+      scrollY.current = y;
+      const hdr = document.querySelector("header");
+      if (hdr) hdr.classList.toggle("scrolled", y > 40);
+      const sp = document.getElementById("scrollProgress");
+      if (sp) {
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        sp.style.transform = `scaleX(${h > 0 ? Math.min(1, y / h) : 0})`;
+      }
       if (heroText.current) {
-        const y = window.scrollY;
         heroText.current.style.transform = `translateY(${y * 0.18}px) scale(${1 + y * 0.00035})`;
         heroText.current.style.filter = `blur(${Math.min(8, y * 0.006)}px)`; // profundidad de campo
       }
@@ -61,8 +68,11 @@ export default function App() {
           <a href="#proyectos" onClick={() => setMenu(false)}>PROYECTOS</a>
           <a href="#contacto" onClick={() => setMenu(false)}>CONTACTO</a>
         </nav>
-        <div className="hamb" onClick={() => setMenu(!menu)}><div /><div /><div /></div>
+        <div className={`hamb${menu ? " open" : ""}`} onClick={() => setMenu(!menu)} aria-label="Abrir menú"><div /><div /><div /></div>
       </header>
+
+      <div className="noise" aria-hidden="true" />
+      <div id="scrollProgress" aria-hidden="true" />
 
       <div className="fondo-canvas">
         <Canvas camera={{ position: [0, 0.4, 9], fov: 68 }} dpr={[1, 1.5]} gl={{ antialias: true, alpha: true }}>
@@ -110,6 +120,7 @@ export default function App() {
       </div>
 
       <section className="bloque" id="servicios">
+        <p className="kicker">Nuestros servicios</p>
         <h2 className="sec">Servicios</h2>
         <p className="lead">{CONTENIDO.marca.descripcion}</p>
         <div className="grid-serv">
@@ -124,6 +135,7 @@ export default function App() {
       </section>
 
       <section className="bloque" id="proyectos">
+        <p className="kicker">Portafolio</p>
         <h2 className="sec">Proyectos</h2>
         <p className="lead">Algunos de nuestros proyectos recientes — toca para ampliar.</p>
         <div className="galeria">
@@ -136,6 +148,7 @@ export default function App() {
       </section>
 
       <section className="bloque" id="contacto">
+        <p className="kicker">Hablemos</p>
         <h2 className="sec">Contacto</h2>
         <p className="lead">Cotizaciones directas por teléfono o WhatsApp en Nuevo Laredo.</p>
         <div className="contacto-wrap">
@@ -157,6 +170,11 @@ export default function App() {
       </section>
 
       <footer>{CONTENIDO.footer}<a href={CONTENIDO.designByGithub} target="_blank" rel="noreferrer">{CONTENIDO.designBy}</a></footer>
+
+      <a className="wa-float" href={CONTENIDO.contacto.whatsapp} target="_blank" rel="noreferrer" aria-label="Cotizar por WhatsApp">
+        <span>WhatsApp</span>
+      </a>
+      <button id="backTop" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Volver arriba">↑</button>
 
       {light && (
         <div className="lightbox" onClick={() => setLight(null)}>
