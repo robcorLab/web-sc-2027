@@ -166,7 +166,8 @@ button.enviar:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(255,68,1
 .dato a{color:var(--text-dim);transition:color .25s}
 .dato a:hover{color:var(--cian-neon)}
 .redes{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
-.red{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.04);border:1px solid var(--border);font-weight:700;transition:transform .3s var(--ease-out),border-color .3s,box-shadow .3s,color .3s}
+.red{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text-dim);transition:transform .3s var(--ease-out),border-color .3s,box-shadow .3s,color .3s}
+.red svg{width:18px;height:18px;fill:currentColor}
 .red:hover{transform:translateY(-3px) scale(1.05);border-color:var(--magenta);color:var(--magenta);box-shadow:0 8px 24px rgba(255,68,170,.35)}
 
 footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:30px clamp(20px,6vw,96px);text-align:center;color:var(--text-dim);font-size:.88rem;background:var(--bg-soft)}
@@ -177,8 +178,10 @@ footer a{font-family:var(--font-display);font-weight:700;background:var(--grad-m
 .lightbox .box{width:min(880px,94vw);background:var(--bg-soft);border-radius:var(--radius);padding:28px;border:1px solid var(--border-strong);text-align:center}
 
 .wa-float{position:fixed;right:22px;bottom:24px;z-index:80;display:grid;place-items:center;width:60px;height:60px;border-radius:50%;
-  background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-family:var(--font-display);font-weight:900;font-size:.55rem;
+  background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;
   box-shadow:0 10px 30px rgba(37,211,102,.4);animation:waPulse 2.6s ease infinite;transition:transform .3s var(--ease-out)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+.wa-float span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .wa-float:hover{transform:translateY(-4px) scale(1.06)}
 @keyframes waPulse{0%{box-shadow:0 10px 30px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.35)}70%{box-shadow:0 10px 30px rgba(37,211,102,.4),0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 10px 30px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,0)}}
 #backTop{position:fixed;right:24px;bottom:100px;z-index:80;width:44px;height:44px;border-radius:12px;cursor:pointer;
