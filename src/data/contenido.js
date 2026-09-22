@@ -7,7 +7,7 @@ export const CONTENIDO = {
     descripcion: "Servicios de Comunicación Visual, desde la conceptualización hasta producción final.",
     heroKicker: "Servicios de Comunicación Visual",
     heroSubIni: "30 años",
-    heroSubResto: " Creando conexiones",
+    heroSubResto: " Creando",
     giro: "Impresión de formas continuas y otros impresos · SCIAN 323119 · Desde 2010",
   },
   contacto: {
