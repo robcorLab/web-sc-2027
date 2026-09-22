@@ -25,7 +25,7 @@ nav a:hover{color:var(--red);opacity:1}
 .hero-canvas canvas{display:block}
 .hero-inner{position:relative;z-index:2;max-width:1100px}
 .eyebrow{display:inline-block;font-size:.72rem;letter-spacing:.32em;border:1px solid rgba(255,255,255,.18);padding:8px 16px;border-radius:999px;color:var(--mut);margin-bottom:22px;background:rgba(255,255,255,.04)}
-h1.hero-title{font-family:'Syne',system-ui,sans-serif;font-size:clamp(3rem,11vw,9.5rem);line-height:.95;letter-spacing:-.03em;font-weight:800}
+h1.hero-title{font-family:'Space Grotesk',system-ui,sans-serif;font-size:clamp(3rem,11vw,9.5rem);line-height:.95;letter-spacing:-.04em;font-weight:700}
 h1 .grad{background:linear-gradient(270deg,#ff4444,#ffcc00,#44ffcc,#ff44aa,#ff4444);background-size:600% 600%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 10s ease infinite;display:block}
 @keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 .hero-pill{display:inline-block;margin:0 auto 24px;max-width:640px;padding:14px 24px;border-radius:20px;background:rgba(20,20,24,.42);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,.22);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 12px 40px rgba(0,0,0,.45)}
