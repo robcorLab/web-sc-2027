@@ -98,7 +98,7 @@ export default function App() {
                 <div className="hero-ribbon-half" key={half} aria-hidden={half === 1}>
                   {[0, 1, 2, 3].map((i) => (
                     <span className="hero-ribbon-txt" key={i}>
-                      {CONTENIDO.marca.heroSubIni + " " + CONTENIDO.marca.heroSubResto.trim()} ◇
+                      {CONTENIDO.marca.heroSubIni + " " + CONTENIDO.marca.heroSubResto.trim()}
                     </span>
                   ))}
                 </div>
