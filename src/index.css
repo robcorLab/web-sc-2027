@@ -54,13 +54,13 @@ h1 .grad{background:linear-gradient(270deg,#ff4444,#ffcc00,#44ffcc,#ff44aa,#ff44
 }
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 28px;border-radius:999px;font-weight:800;font-size:.9rem;cursor:pointer;transition:transform .25s cubic-bezier(.32,.72,0,1),background .25s,border-color .25s,box-shadow .25s}
 .btn.primary{background:rgba(255,255,255,.92);color:#000;border:1px solid rgba(255,255,255,.6);box-shadow:0 8px 28px rgba(0,0,0,.5)}
-.hero-cta .btn.primary{position:relative;isolation:isolate;border:2px solid rgba(57,255,20,.4);box-shadow:0 0 16px rgba(57,255,20,.16),0 8px 28px rgba(0,0,0,.5)}
+.hero-cta .btn.primary{position:relative;isolation:isolate;border:2px solid rgba(57,255,20,.3);box-shadow:0 0 16px rgba(57,255,20,.14),0 8px 28px rgba(0,0,0,.5)}
 @supports (offset-path: rect(0 0 100% 100%)){
-  .hero-cta .btn.primary::before{content:'';position:absolute;inset:-3px;z-index:-1;width:58px;height:7px;border-radius:999px;background:linear-gradient(270deg,rgba(57,255,20,0) 0%,rgba(57,255,20,.4) 55%,#39ff14 100%);filter:drop-shadow(0 0 9px rgba(57,255,20,.85));offset-path:rect(0 0 100% 100% round 999px);offset-rotate:auto;animation:ctaRun 2.4s linear infinite}
+  .hero-cta .btn.primary::before{content:'';position:absolute;inset:-3px;z-index:-1;width:150px;height:12px;border-radius:999px;background:linear-gradient(90deg,rgba(57,255,20,0) 0%,rgba(57,255,20,.12) 22%,#d9fff0 42%,#ffffff 50%,#d9fff0 58%,#39ff14 78%,rgba(57,255,20,0) 100%);filter:drop-shadow(0 0 12px rgba(57,255,20,.75));offset-path:rect(0 0 100% 100% round 999px);offset-rotate:auto;animation:ctaRun 3.4s linear infinite}
 }
 @keyframes ctaRun{from{offset-distance:0%}to{offset-distance:100%}}
 @supports not (offset-path: rect(0 0 100% 100%)){
-  .hero-cta .btn.primary::before{content:'';position:absolute;inset:-3px;border-radius:999px;padding:3px;z-index:-1;background:conic-gradient(from 0deg,transparent 0deg,transparent 330deg,#39ff14 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;animation:ctaSpin 2.4s linear infinite}
+  .hero-cta .btn.primary::before{content:'';position:absolute;inset:-3px;border-radius:999px;padding:3px;z-index:-1;background:conic-gradient(from 0deg,#39ff14,rgba(255,255,255,.75) 90deg,#39ff14 180deg,rgba(255,255,255,.55) 270deg,#39ff14 360deg);background-size:200% 200%;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;animation:ctaSpin 4s linear infinite}
   @keyframes ctaSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 }
 .btn.primary:hover{transform:scale(1.03);background:#fff;box-shadow:0 8px 34px rgba(0,0,0,.55),0 0 24px rgba(255,255,255,.25)}
