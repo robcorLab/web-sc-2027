@@ -93,8 +93,17 @@ export default function App() {
         </div>
         <div className="hero-ribbon-wrap">
           <div className="hero-ribbon">
-            <span className="hero-ribbon-yrs">{CONTENIDO.marca.heroSubIni}</span>
-            <span className="hero-ribbon-txt">{CONTENIDO.marca.heroSubResto}</span>
+            <div className="hero-ribbon-track">
+              {[0, 1].map((half) => (
+                <div className="hero-ribbon-half" key={half} aria-hidden={half === 1}>
+                  {[0, 1, 2, 3].map((i) => (
+                    <span className="hero-ribbon-txt" key={i}>
+                      {CONTENIDO.marca.heroSubIni + " " + CONTENIDO.marca.heroSubResto.trim()} ◇
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div className="scroll-hint">SCROLL · 3D</div>
