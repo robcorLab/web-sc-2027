@@ -86,12 +86,15 @@ export default function App() {
             <span>{CONTENIDO.marca.tagline}</span>
             <span className="grad">{CONTENIDO.marca.tagline2}</span>
           </h1>
-          <div className="hero-pill">
-            <p className="hero-sub"><span className="destacado">{CONTENIDO.marca.heroSubIni}</span>{CONTENIDO.marca.heroSubResto}</p>
-          </div>
           <div className="hero-cta">
             <a className="btn primary" href="#contacto">Cotizar por WhatsApp</a>
             <a className="btn ghost" href="#proyectos">Ver proyectos</a>
+          </div>
+        </div>
+        <div className="hero-ribbon-wrap">
+          <div className="hero-ribbon">
+            <span className="hero-ribbon-yrs">{CONTENIDO.marca.heroSubIni}</span>
+            <span className="hero-ribbon-txt">{CONTENIDO.marca.heroSubResto}</span>
           </div>
         </div>
         <div className="scroll-hint">SCROLL · 3D</div>
